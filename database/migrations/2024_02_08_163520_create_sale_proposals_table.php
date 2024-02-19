@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('sale_proposals', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamps("creationDate");
+            $table->string("state")->default("pending");
+            $table->string("details");
+
+            //FK ClientID
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')
+            ->references("id")
+            ->on("clients")
+            ->onDelete('cascade');
         });
     }
 

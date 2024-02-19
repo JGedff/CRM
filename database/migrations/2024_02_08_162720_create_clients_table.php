@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('client_type_id');
             $table->foreign('client_type_id')
             ->references('id')
-            ->on('clientTypes')
+            ->on('client_types')
             ->onDelete('cascade');
         });
     }
