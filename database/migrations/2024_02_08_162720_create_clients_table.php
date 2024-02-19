@@ -14,6 +14,18 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string("name");
+            $table->string("surname");
+            $table->string("email");
+            $table->string("phone");
+            $table->string("adress");
+
+            //FK ClientType
+            $table->unsignedBigInteger('client_type_id');
+            $table->foreign('client_type_id')
+            ->references('id')
+            ->on('clientTypes')
+            ->onDelete('cascade');
         });
     }
 
