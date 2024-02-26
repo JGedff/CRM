@@ -14,6 +14,7 @@ class Product extends Model
         'description',
         'price',
         'stock',
-        'entry_date',
+        'monthly_quota',
+        'duration'
     ];
 }
