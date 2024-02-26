@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sale_proposals', function (Blueprint $table) {
             $table->id();
-            $table->timestamps("creationDate");
+            $table->timestamps();
             $table->string("state")->default("pending");
             $table->string("details");
 
