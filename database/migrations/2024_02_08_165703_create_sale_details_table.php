@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('sale_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->integer("sold_quantity");
+            $table->double("unit_price");
         });
     }
 
