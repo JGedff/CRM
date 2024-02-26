@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Alert extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'content',
+        'to_client_id'
+    ];
 }
