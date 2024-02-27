@@ -17,6 +17,20 @@ return new class extends Migration
 
             $table->integer("sold_quantity");
             $table->double("unit_price");
+
+            //FK Propuesta ID
+            $table->unsignedBigInteger('sale_proposal_id');
+            $table->foreign('sale_proposal_id')
+            ->references("id")
+            ->on("sale_proposals")
+            ->onDelete('cascade');
+
+            //FK ProductoServicio ID
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+            ->references("id")
+            ->on("products")
+            ->onDelete('cascade');
         });
     }
 
