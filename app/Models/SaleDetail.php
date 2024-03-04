@@ -15,4 +15,8 @@ class SaleDetail extends Model
         'quantity_sold',
         'total_price'
     ];
+
+    public function saleProposals() {
+        return $this->belongsTo(SaleProposal::class);
+    }
 }

@@ -14,4 +14,16 @@ class SaleProposal extends Model
         'state',
         'details'
     ];
+
+    public function clients() {
+        return $this->belongsTo(Client::class);
+    }
+    
+    public function products() {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function saleDetails() {
+        return $this->hasOne(SaleDetail::class);
+    }
 }
