@@ -17,4 +17,12 @@ class Client extends Model
         'adress',
         'client_type_id'
     ];
+
+    public function clientTypes() {
+        return $this->belongsTo(ClientType::class);
+    }
+
+    public function saleProposals() {
+        return $this->hasMany(SaleProposal::class);
+    }
 }
