@@ -13,4 +13,8 @@ class Alert extends Model
         'content',
         'to_client_id'
     ];
+
+    public function clients() {
+        return $this->belongsTo(Client::class);
+    }
 }

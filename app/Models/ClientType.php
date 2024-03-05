@@ -12,4 +12,8 @@ class ClientType extends Model
     protected $fillable = [
         'description'
     ];
+
+    protected function clients() {
+        return $this->hasMany(Client::class);
+    }
 }

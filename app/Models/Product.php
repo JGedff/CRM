@@ -17,4 +17,8 @@ class Product extends Model
         'monthly_quota',
         'duration'
     ];
+
+    public function saleProposals() {
+        return $this->belongsToMany(SaleProposal::class);
+    }
 }
