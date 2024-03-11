@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string("state")->default("pending");
             $table->string("details");
+            $table->integer("sold_quantity");
+            $table->double("unit_price");
 
             //FK ClientID
             $table->unsignedBigInteger('client_id');

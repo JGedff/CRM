@@ -17,4 +17,11 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+    
+    public function test_clienthome_route(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
 }

@@ -11,7 +11,7 @@ class Alert extends Model
 
     protected $fillable = [
         'content',
-        'to_client_id'
+        'client_id'
     ];
 
     public function clients() {
