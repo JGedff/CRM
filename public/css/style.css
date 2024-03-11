@@ -1,0 +1,31 @@
+/* BODY */
+body {
+    background: #dee2e6;
+    font-family: "Barlow", sans-serif;
+}
+
+/* NAVBAR */
+.topNavbar {
+    background-color: #004d8f;
+    color: white;
+}
+
+.navbar2 {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #181f38;
+}
+
+.nbIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.nbButton {
+    background-color: #91c120;
+    color: black;
+}
+
+.mainNavbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #181f38;
+}
