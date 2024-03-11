@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('sale_proposal_products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sale_proposal_id');
-            $table->foreing('sale_proposal_id')
+            $table->foreign('sale_proposal_id')
                 ->references('id')
                 ->on('sale_proposals')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
-            $table->foreing('product_id')
+            $table->foreign('product_id')
                 ->references('id')
-                ->on('productss')
+                ->on('products')
                 ->onDelete('cascade');
 
             $table->timestamps();
