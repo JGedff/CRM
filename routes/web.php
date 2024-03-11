@@ -31,12 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     // THE BEST ROUTES
-    Route::resource('client', [ClientController::class]);
-    Route::resource('clientType', [ClientTypeController::class]);
-    Route::resource('saleProposal', [SaleProposalController::class]);
-    Route::resource('saleDetail', [SaleDetailController::class]);
-    Route::resource('product', [ProductController::class]);
-    Route::resource('alert', [AlertController::class]);
+    Route::resource('client', ClientController::class);
+    Route::resource('clientType', ClientTypeController::class);
+    Route::resource('saleProposal', SaleProposalController::class);
+    Route::resource('saleDetail', SaleDetailController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('alert', AlertController::class);
 });
 
 require __DIR__.'/auth.php';
