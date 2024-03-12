@@ -5,7 +5,7 @@
     <nav class="navbar navbar-expand-lg py-0 px-2 topNavbar">
         <div class="container-fluid px-0">
             <a class="navbar-brand ps-2" href="">
-                <img class="nbIcon" src="{{ asset('img\logo_epia_80x80.png') }}" alt="">
+                <img class="nbIcon" src="{{ asset('img\navicon_blai.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -13,13 +13,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 text-light" href="/courses">Inici :: cursos</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/main">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 text-light" href="/test_form">Generar calendari</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="">Option 2</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 text-light" href="/test">TEST</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="">Option 3</a>
                     </li>
                 </ul>
 
