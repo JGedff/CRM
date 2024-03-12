@@ -17,7 +17,9 @@ class SaleProposalFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'state' => $this->faker->text(),
+            'quantity_sold' => $this->faker->numberBetween(0, 50),
+            'total_price' => $this->faker->numberBetween(0, 50),
         ];
     }
 }

@@ -15,16 +15,15 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string("state")->default("pending");
-            $table->string("details");
-            $table->integer("sold_quantity");
-            $table->double("unit_price");
+            $table->integer("quantity_sold");
+            $table->double("total_price");
 
             //FK ClientID
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')
-            ->references("id")
-            ->on("clients")
-            ->onDelete('cascade');
+                ->references("id")
+                ->on("clients")
+                ->onDelete('cascade');
         });
     }
 

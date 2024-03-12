@@ -12,7 +12,7 @@ class BasicRoutesTest extends TestCase
 
     public function test_alert_index_route(): void
     {
-        $user = User::factory()->create();
+        $user = User::find(0);
 
         $response = $this->post('/login', [
             'email' => $user->email,
@@ -26,8 +26,8 @@ class BasicRoutesTest extends TestCase
 
     public function test_alert_create_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
@@ -40,8 +40,8 @@ class BasicRoutesTest extends TestCase
     
     public function test_client_index_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
@@ -54,8 +54,8 @@ class BasicRoutesTest extends TestCase
 
     public function test_client_create_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
@@ -68,8 +68,8 @@ class BasicRoutesTest extends TestCase
     
     public function test_product_index_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
@@ -82,8 +82,8 @@ class BasicRoutesTest extends TestCase
 
     public function test_product_create_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
@@ -96,8 +96,8 @@ class BasicRoutesTest extends TestCase
     
     public function test_sale_proposal_index_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
@@ -110,8 +110,8 @@ class BasicRoutesTest extends TestCase
 
     public function test_sale_proposal_create_route(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::find(0);
+        
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',

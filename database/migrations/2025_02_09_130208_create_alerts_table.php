@@ -13,14 +13,8 @@ return new class extends Migration
     {
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
-            $table->string("content");
-            
-            //FK ClientID
-            $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')
-            ->references("id")
-            ->on("clients")
-            ->onDelete('cascade');
+            $table->string('content');
+            $table->string('username');
             $table->timestamps();
         });
     }
