@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container flex mt-5">
         <h1 class="m-3 p-3 border">VISTA PRINCIPAL</h1>
     </div>
     
