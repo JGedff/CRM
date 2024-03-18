@@ -1,0 +1,45 @@
+/* BODY */
+body {
+    background: #cde7dc;
+    font-family: "Barlow", sans-serif;
+}
+
+/* NAVBAR */
+.topNavbar {
+    background-color: #181f38;
+    color: white;
+}
+
+.navbar2 {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #181f38;
+}
+
+.nbIcon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.nbLink {
+    border-radius: 0;
+    color: white;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.nbLink:hover {
+    background-color: #ffcc66;
+    color: black;
+    font-weight: 600;
+}
+
+.nbButton {
+    background-color: #91c120;
+    color: black;
+}
+
+.mainNavbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #181f38;
+}

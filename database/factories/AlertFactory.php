@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Client;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Alert>
@@ -17,7 +18,8 @@ class AlertFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'content' => $this->faker->word(),
+            'username' => $this->faker->name(),
         ];
     }
 }

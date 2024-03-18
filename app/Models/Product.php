@@ -14,6 +14,11 @@ class Product extends Model
         'description',
         'price',
         'stock',
-        'entry_date',
+        'monthly_quota',
+        'duration'
     ];
+
+    public function saleProposals() {
+        return $this->belongsToMany(SaleProposal::class);
+    }
 }
