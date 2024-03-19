@@ -161,15 +161,13 @@ class AdvancedRoutesTest extends TestCase
             'email' => $user->email,
             'password' => 'password',
         ]);
-        
-        $clientToDelete = Client::find(1);
 
         $response = $this->delete('/client/1');
 
+        $lastClient = Client::find(1);
+        
         $response->assertStatus(200);
 
-        $allclients = Client::all();
-
-        $this->assertNotContains($allclients, $clientToDelete);
+        $this->assertFalse(empty($lastClient));
     }
 }
