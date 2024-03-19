@@ -20,7 +20,7 @@ class AdvancedRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->post('/alert', [
+        $response = $this->post('/alerts', [
             'content' => 'AlertContent',
             'username' => 'USERNAME',
         ]);
@@ -46,7 +46,7 @@ class AdvancedRoutesTest extends TestCase
 
         $lastAlert = Alert::find(1);
 
-        $response = $this->post('/alert/1', [
+        $response = $this->post('/alerts/1', [
             'content' => 'NewContent',
             'username' => 'YAAAA',
         ]);
@@ -73,7 +73,7 @@ class AdvancedRoutesTest extends TestCase
         
         $alertToDelete = Alert::find(1);
 
-        $response = $this->delete('/alert/1');
+        $response = $this->delete('/alerts/1');
 
         $response->assertStatus(200);
 
@@ -91,7 +91,7 @@ class AdvancedRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->post('/client', [
+        $response = $this->post('/clients', [
             'name' => 'client1',
             'surname' => 'client1',
             'email' => 'client1',
@@ -125,7 +125,7 @@ class AdvancedRoutesTest extends TestCase
 
         $lastclient = client::find(1);
 
-        $response = $this->post('/client/1', [
+        $response = $this->post('/clients/1', [
             'name' => 'AAACILENTAAA3',
             'surname' => 'AAACILENTAAA3',
             'email' => 'AAACILENTAAA3',
@@ -162,7 +162,7 @@ class AdvancedRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->delete('/client/1');
+        $response = $this->delete('/clients/1');
 
         $lastClient = Client::find(1);
         

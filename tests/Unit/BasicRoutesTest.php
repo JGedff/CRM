@@ -19,7 +19,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/alert');
+        $response = $this->get('/alerts');
 
         $response->assertStatus(200);
     }
@@ -33,7 +33,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/alert/create');
+        $response = $this->get('/alerts/create');
 
         $response->assertStatus(200);
     }
@@ -47,7 +47,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/alert/1');
+        $response = $this->get('/alerts/1');
 
         $response->assertStatus(200);
     }
@@ -61,7 +61,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/alert/1/edit');
+        $response = $this->get('/alerts/1/edit');
 
         $response->assertStatus(200);
     }
@@ -75,7 +75,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/client');
+        $response = $this->get('/clients');
 
         $response->assertStatus(200);
     }
@@ -89,7 +89,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/client/create');
+        $response = $this->get('/clients/create');
 
         $response->assertStatus(200);
     }
@@ -103,7 +103,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/client/1');
+        $response = $this->get('/clients/1');
 
         $response->assertStatus(200);
     }
@@ -117,7 +117,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/client/1/edit');
+        $response = $this->get('/clients/1/edit');
 
         $response->assertStatus(200);
     }
@@ -131,7 +131,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/product');
+        $response = $this->get('/products');
 
         $response->assertStatus(200);
     }
@@ -145,7 +145,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/product/create');
+        $response = $this->get('/products/create');
 
         $response->assertStatus(200);
     }
@@ -159,7 +159,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/product/1');
+        $response = $this->get('/products/1');
 
         $response->assertStatus(200);
     }
@@ -173,7 +173,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/product/1/edit');
+        $response = $this->get('/products/1/edit');
 
         $response->assertStatus(200);
     }
@@ -187,7 +187,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/saleProposal');
+        $response = $this->get('/saleProposals');
 
         $response->assertStatus(200);
     }
@@ -201,7 +201,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/saleProposal/create');
+        $response = $this->get('/saleProposals/create');
 
         $response->assertStatus(200);
     }
@@ -215,7 +215,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/saleProposal/1');
+        $response = $this->get('/saleProposals/1');
 
         $response->assertStatus(200);
     }
@@ -229,7 +229,7 @@ class BasicRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $response = $this->get('/saleProposal/1/edit');
+        $response = $this->get('/saleProposals/1/edit');
 
         $response->assertStatus(200);
     }
