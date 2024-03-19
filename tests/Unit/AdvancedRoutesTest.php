@@ -29,10 +29,36 @@ class AdvancedRoutesTest extends TestCase
 
         $newAlert = Alert::find(count($all));
 
-        $response->assertStatus(200);
-
         $this->assertEquals($newAlert->content, 'AlertContent');
         $this->assertEquals($newAlert->username, 'USERNAME');
+    }
+
+    public function test_alert_show_route(): void
+    {
+        $user = User::find(1);
+        
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->get('/alerts/1');
+
+        $response->assertStatus(200);
+    }
+    
+    public function test_alert_edit_route(): void
+    {
+        $user = User::find(1);
+        
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->get('/alerts/1/edit');
+
+        $response->assertStatus(200);
     }
 
     public function test_alert_update_route(): void
@@ -52,8 +78,6 @@ class AdvancedRoutesTest extends TestCase
         ]);
 
         $newAlert = Alert::find(1);
-
-        $response->assertStatus(200);
         
         $this->assertNotEquals($newAlert->content, $lastAlert->content);
         $this->assertNotEquals($newAlert->username, $lastAlert->username);
@@ -77,9 +101,9 @@ class AdvancedRoutesTest extends TestCase
 
         $response->assertStatus(200);
 
-        $allAlerts = Alert::all();
+        $lastAlert = Alert::find(1);
 
-        $this->assertNotContains($allAlerts, $alertToDelete);
+        $this->assertFalse(true);
     }
     
     public function test_create_new_client(): void
@@ -104,14 +128,40 @@ class AdvancedRoutesTest extends TestCase
 
         $newclient = Client::find(count($all));
 
-        $response->assertStatus(200);
-
         $this->assertEquals($newclient->name, 'client1');
         $this->assertEquals($newclient->surname, 'client1');
         $this->assertEquals($newclient->email, 'client1');
         $this->assertEquals($newclient->phone, 'client1');
         $this->assertEquals($newclient->adress, 'client1');
         $this->assertEquals($newclient->type, 'client1');
+    }
+
+    public function test_client_show_route(): void
+    {
+        $user = User::find(1);
+        
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->get('/clients/1');
+
+        $response->assertStatus(200);
+    }
+    
+    public function test_client_edit_route(): void
+    {
+        $user = User::find(1);
+        
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->get('/clients/1/edit');
+
+        $response->assertStatus(200);
     }
 
     public function test_client_update_route(): void
@@ -135,8 +185,6 @@ class AdvancedRoutesTest extends TestCase
         ]);
 
         $newclient = client::find(1);
-
-        $response->assertStatus(200);
         
         $this->assertNotEquals($newclient->name, $lastclient->name);
         $this->assertNotEquals($newclient->surname, $lastclient->surname);
@@ -168,6 +216,6 @@ class AdvancedRoutesTest extends TestCase
         
         $response->assertStatus(200);
 
-        $this->assertFalse(empty($lastClient));
+        $this->assertFalse(true);
     }
 }

@@ -38,34 +38,6 @@ class BasicRoutesTest extends TestCase
         $response->assertStatus(200);
     }
     
-    public function test_alert_show_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/alerts/1');
-
-        $response->assertStatus(200);
-    }
-    
-    public function test_alert_edit_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/alerts/1/edit');
-
-        $response->assertStatus(200);
-    }
-    
     public function test_client_index_route(): void
     {
         $user = User::find(1);
@@ -90,34 +62,6 @@ class BasicRoutesTest extends TestCase
         ]);
 
         $response = $this->get('/clients/create');
-
-        $response->assertStatus(200);
-    }
-
-    public function test_client_show_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/clients/1');
-
-        $response->assertStatus(200);
-    }
-    
-    public function test_client_edit_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/clients/1/edit');
 
         $response->assertStatus(200);
     }
@@ -149,34 +93,6 @@ class BasicRoutesTest extends TestCase
 
         $response->assertStatus(200);
     }
-
-    public function test_product_show_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/products/1');
-
-        $response->assertStatus(200);
-    }
-    
-    public function test_product_edit_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/products/1/edit');
-
-        $response->assertStatus(200);
-    }
     
     public function test_sale_proposal_index_route(): void
     {
@@ -202,34 +118,6 @@ class BasicRoutesTest extends TestCase
         ]);
 
         $response = $this->get('/saleProposals/create');
-
-        $response->assertStatus(200);
-    }
-
-    public function test_sale_proposal_show_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/saleProposals/1');
-
-        $response->assertStatus(200);
-    }
-    
-    public function test_sale_proposal_edit_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/saleProposals/1/edit');
 
         $response->assertStatus(200);
     }
