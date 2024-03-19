@@ -15,6 +15,7 @@ class ClientController extends Controller
         $data = Client::all();
         return view('client_module.index', ['clients' => $data]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
