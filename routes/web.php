@@ -38,6 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('main', function() {
         return view('main');
     });
+
+    Route::get('test', function() {
+        return view('test');
+    });
     
     Route::resource('client', ClientController::class);
     Route::resource('saleProposal', SaleProposalController::class);
