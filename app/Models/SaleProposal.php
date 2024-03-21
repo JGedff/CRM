@@ -12,7 +12,8 @@ class SaleProposal extends Model
     protected $fillable = [
         'client_id',
         'state',
-        'details'
+        'quantity_sold',
+        'total_price'
     ];
 
     public function clients() {
@@ -21,9 +22,5 @@ class SaleProposal extends Model
     
     public function products() {
         return $this->belongsToMany(Product::class);
-    }
-
-    public function saleDetails() {
-        return $this->hasOne(SaleDetail::class);
     }
 }

@@ -11,10 +11,6 @@ class Alert extends Model
 
     protected $fillable = [
         'content',
-        'to_client_id'
+        'username'
     ];
-
-    public function clients() {
-        return $this->belongsTo(Client::class);
-    }
 }
