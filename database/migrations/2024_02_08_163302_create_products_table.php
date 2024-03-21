@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string("description");
             $table->double("price");
             $table->integer("stock");
-            $table->date("entraceDate");
+            $table->double("monthly_quota");
+            $table->date("duration");
         });
     }
 

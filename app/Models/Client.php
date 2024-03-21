@@ -15,12 +15,8 @@ class Client extends Model
         'email',
         'phone',
         'adress',
-        'client_type_id'
+        'type'
     ];
-
-    public function clientTypes() {
-        return $this->belongsTo(ClientType::class);
-    }
 
     public function saleProposals() {
         return $this->hasMany(SaleProposal::class);

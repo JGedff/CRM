@@ -19,13 +19,7 @@ return new class extends Migration
             $table->string("email");
             $table->string("phone");
             $table->string("adress");
-
-            //FK ClientType
-            $table->unsignedBigInteger('client_type_id');
-            $table->foreign('client_type_id')
-            ->references('id')
-            ->on('client_types')
-            ->onDelete('cascade');
+            $table->string('type');
         });
     }
 
