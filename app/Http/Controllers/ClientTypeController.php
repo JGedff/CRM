@@ -12,7 +12,8 @@ class ClientTypeController extends Controller
      */
     public function index()
     {
-        //
+        $data = ClientType::all();
+        return view ('client_type.index', ['saleProposals' => $data]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ClientTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('client_type.create');
     }
 
     /**
@@ -28,15 +29,16 @@ class ClientTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ClientType::create($request->all());
+        return redirect('/client_types');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ClientType $clientType)
+    public function show()
     {
-        //
+
     }
 
     /**
@@ -44,7 +46,9 @@ class ClientTypeController extends Controller
      */
     public function edit(ClientType $clientType)
     {
-        //
+        return view('client_type.edit', [
+            'client_type' => $clientType 
+        ]);
     }
 
     /**
@@ -52,7 +56,8 @@ class ClientTypeController extends Controller
      */
     public function update(Request $request, ClientType $clientType)
     {
-        //
+        $clientType->update($request->all());
+        return redirect('/client_types');
     }
 
     /**
@@ -60,6 +65,7 @@ class ClientTypeController extends Controller
      */
     public function destroy(ClientType $clientType)
     {
-        //
+        $clientType->delete();
+        return redirect('/client_types');
     }
 }
