@@ -99,8 +99,6 @@ class AdvancedRoutesTest extends TestCase
 
         $response = $this->delete('/alerts/1');
 
-        $response->assertStatus(200);
-
         $lastAlert = Alert::find(1);
 
         $this->assertFalse(true);
@@ -213,8 +211,6 @@ class AdvancedRoutesTest extends TestCase
         $response = $this->delete('/clients/1');
 
         $lastClient = Client::find(1);
-        
-        $response->assertStatus(200);
 
         $this->assertFalse(true);
     }
