@@ -15,12 +15,12 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
 
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
-        $response = $this->post('/alerts', [
+        $this->post('/alerts', [
             'content' => 'AlertContent',
             'username' => 'USERNAME',
         ]);
@@ -37,7 +37,7 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
         
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
@@ -51,7 +51,7 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
         
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
@@ -65,14 +65,14 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
 
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
         $lastAlert = Alert::find(1);
 
-        $response = $this->post('/alerts/1', [
+        $this->post('/alerts/1', [
             'content' => 'NewContent',
             'username' => 'YAAAA',
         ]);
@@ -90,14 +90,14 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
         
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
         
         $alertToDelete = Alert::find(1);
 
-        $response = $this->delete('/alerts/1');
+        $this->delete('/alerts/1');
 
         $lastAlert = Alert::find(1);
 
@@ -108,12 +108,12 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
 
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
-        $response = $this->post('/clients', [
+        $this->post('/clients', [
             'name' => 'client1',
             'surname' => 'client1',
             'email' => 'client1',
@@ -138,7 +138,7 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
         
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
@@ -152,7 +152,7 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
         
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
@@ -166,14 +166,14 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
 
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
-        $lastclient = client::find(1);
+        $lastclient = Client::find(1);
 
-        $response = $this->post('/clients/1', [
+        $this->post('/clients/1', [
             'name' => 'AAACILENTAAA3',
             'surname' => 'AAACILENTAAA3',
             'email' => 'AAACILENTAAA3',
@@ -182,7 +182,7 @@ class AdvancedRoutesTest extends TestCase
             'type' => 'AAACILENTAAA3'
         ]);
 
-        $newclient = client::find(1);
+        $newclient = Client::find(1);
         
         $this->assertNotEquals($newclient->name, $lastclient->name);
         $this->assertNotEquals($newclient->surname, $lastclient->surname);
@@ -203,12 +203,12 @@ class AdvancedRoutesTest extends TestCase
     {
         $user = User::find(1);
         
-        $response = $this->post('/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
-        $response = $this->delete('/clients/1');
+        $this->delete('/clients/1');
 
         $lastClient = Client::find(1);
 
