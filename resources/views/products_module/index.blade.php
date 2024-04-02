@@ -1,3 +1,11 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
+@extends('master.navbar')
+
+@section('main')
+        
+    <div class="card mx-5">
+        <div class="card-body text-center">
+            <h1>Vista principal PRODUCTOS</h1>
+        </div>
+    </div>
+
+@endsection
