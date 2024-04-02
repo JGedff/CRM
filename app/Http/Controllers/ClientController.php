@@ -39,7 +39,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-
+        return $client;
         return view('client_module.show', ['client' => $client]);
     }
 
