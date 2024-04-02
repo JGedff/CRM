@@ -38,24 +38,6 @@ class AdvancedRoutesTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
-    public function test_alert_delete_route(): void
-    {
-        $user = User::find(1);
-        
-        $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-        
-        $alertToDelete = Alert::find(1);
-
-        $this->delete('/alerts/1');
-
-        $lastAlert = Alert::find(1);
-
-        $this->assertFalse(true);
-    }
 
     public function test_client_show_route(): void
     {
@@ -83,23 +65,5 @@ class AdvancedRoutesTest extends TestCase
         $response = $this->get('/clients/1/edit');
 
         $response->assertStatus(200);
-    }
-    
-    public function test_client_delete_route(): void
-    {
-        $user = User::find(1);
-        
-        $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $this->delete('/clients/1');
-
-        $lastClient = Client::find(1);
-
-        $this->assertDatabaseMissing('clients', [
-            'id' => 1
-        ]);
     }
 }

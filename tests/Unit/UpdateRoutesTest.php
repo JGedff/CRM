@@ -20,14 +20,21 @@ class UpdateRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $lastAlert = Alert::find(1);
+        $this->post('/alerts', [
+            'content' => 'ALERT1',
+            'username' => 'ALERT1',
+        ]);
 
-        $this->patch('/alerts/1', [
+        $all = Alert::all();
+        $lastNumber = count($all) + 1;
+        $lastAlert = Alert::find($lastNumber);
+
+        $this->put('/alerts' . '/' . $lastNumber, [
             'content' => 'NewContent',
             'username' => 'YAAAA',
         ]);
 
-        $newAlert = Alert::find(1);
+        $newAlert = Alert::find($lastNumber);
         
         $this->assertNotEquals($newAlert->content, $lastAlert->content);
         $this->assertNotEquals($newAlert->username, $lastAlert->username);
@@ -44,10 +51,21 @@ class UpdateRoutesTest extends TestCase
             'email' => $user->email,
             'password' => 'password',
         ]);
+        
+        $this->post('/clients', [
+            'name' => 'client1',
+            'surname' => 'client1',
+            'email' => 'a@b',
+            'phone' => '12321312',
+            'adress' => 'client1',
+            'type' => 'client1'
+        ]);
 
-        $lastclient = Client::find(1);
+        $all = Client::all();
+        $lastNumber = count($all) + 1;
+        $lastclient = Client::find($lastNumber);
 
-        $this->patch('/clients/1', [
+        $this->put('/clients'. '/' . $lastNumber, [
             'name' => 'AAACILENTAAA3',
             'surname' => 'AAACILENTAAA3',
             'email' => 'AAACILENTAAA3',
@@ -56,7 +74,7 @@ class UpdateRoutesTest extends TestCase
             'type' => 'AAACILENTAAA3'
         ]);
 
-        $newclient = Client::find(1);
+        $newclient = Client::find($lastNumber);
 
         $this->assertNotEquals($lastclient->name, $newclient->name);
         $this->assertNotEquals($lastclient->surname, $newclient->surname);

@@ -14,7 +14,7 @@ class SaleProposalController extends Controller
     public function index()
     {
         $data = SaleProposal::all();
-        return view ('proposal_module.index', ['saleProposals' => $data]);
+        return view ('proposals_module.index', ['saleProposals' => $data]);
     }
 
     /**
@@ -22,7 +22,7 @@ class SaleProposalController extends Controller
      */
     public function create(Client $client)
     {
-        return view('proposal_module.create', ['client' => $client]);
+        return view('proposals_module.create', ['client' => $client]);
     }
 
     /**
@@ -42,7 +42,7 @@ class SaleProposalController extends Controller
      */
     public function show(SaleProposal $saleProposal)
     {
-        return view('proposal_module.show', ['saleProposal' => $saleProposal]);
+        return view('proposals_module.show', ['saleProposal' => $saleProposal]);
     }
 
     /**
@@ -50,7 +50,7 @@ class SaleProposalController extends Controller
      */
     public function edit(Client $client, SaleProposal $saleProposal)
     {
-        return view('proposal_module', [
+        return view('proposals_module.edit', [
             'client' => $client,
             'saleProposal' => $saleProposal   
         ]);

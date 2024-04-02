@@ -9,7 +9,7 @@
                 <div class="card shadow-sm">               
                     <div class="card-body mt-3 mx-3">
 
-                        <form method="POST" action="/client">
+                        <form method="POST" action="/clients">
                             @csrf
                             @method('POST')
                 
@@ -39,14 +39,14 @@
                 
                             <!-- Address -->
                             <div class="text-start mb-5">
-                                <label class="form-label ms-2" for="address">Address</label>
-                                <input type="date" class="form-control w-full text-body-secondary" name="address" id="address" required />
+                                <label class="form-label ms-2" for="adress">Address</label>
+                                <input type="date" class="form-control w-full text-body-secondary" name="adress" id="adress" required />
                             </div>
                 
                             <!-- Client type -->
                             <div class="text-start mb-5">
-                                <label class="form-label ms-2" for="client_type">Client type</label>
-                                <input type="date" class="form-control w-full text-body-secondary" name="client_type" id="client_type" required />
+                                <label class="form-label ms-2" for="type">Client type</label>
+                                <input type="date" class="form-control w-full text-body-secondary" name="type" id="type" required />
                             </div>
 
                             <div class="mb-3 row">

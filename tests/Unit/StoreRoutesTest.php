@@ -20,14 +20,14 @@ class StoreRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $this->put('/alerts', [
+        $this->post('/alerts', [
             'content' => 'ALERT1',
             'username' => 'ALERT1',
         ]);
 
         $all = Alert::all();
 
-        $newAlert = Alert::find(count($all));
+        $newAlert = Alert::find(count($all) + 1);
 
         $this->assertEquals($newAlert->content, 'ALERT1');
         $this->assertEquals($newAlert->username, 'ALERT1');
@@ -42,23 +42,23 @@ class StoreRoutesTest extends TestCase
             'password' => 'password',
         ]);
 
-        $this->put('/clients', [
+        $this->post('/clients', [
             'name' => 'client1',
             'surname' => 'client1',
-            'email' => 'client1',
-            'phone' => 'client1',
+            'email' => 'a@b',
+            'phone' => '12321312',
             'adress' => 'client1',
             'type' => 'client1'
         ]);
 
         $all = Client::all();
 
-        $newclient = Client::find(count($all));
+        $newclient = Client::find(count($all) + 1);
 
         $this->assertEquals($newclient->name, 'client1');
         $this->assertEquals($newclient->surname, 'client1');
-        $this->assertEquals($newclient->email, 'client1');
-        $this->assertEquals($newclient->phone, 'client1');
+        $this->assertEquals($newclient->email, 'a@b');
+        $this->assertEquals($newclient->phone, '12321312');
         $this->assertEquals($newclient->adress, 'client1');
         $this->assertEquals($newclient->type, 'client1');
     }
