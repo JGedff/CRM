@@ -14,7 +14,7 @@ class SaleProposalController extends Controller
     public function index()
     {
         $data = SaleProposal::all();
-        return view ('proposal_module.index', ['saleProposals' => $data]);
+        return view ('proposals_module.index', ['saleProposals' => $data]);
     }
 
     /**
