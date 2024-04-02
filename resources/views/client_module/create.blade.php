@@ -40,7 +40,7 @@
                             <!-- Address -->
                             <div class="text-start mb-5">
                                 <label class="form-label ms-2" for="address">Address</label>
-                                <input type="date" class="form-control w-full text-body-secondary" name="adress" id="adress" required />
+                                <input type="date" class="form-control w-full text-body-secondary" name="address" id="address" required />
                             </div>
                 
                             <!-- Client type -->
