@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Client;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Alert;
 use Tests\TestCase;
@@ -89,5 +90,53 @@ class UpdateRoutesTest extends TestCase
         $this->assertEquals($newclient->phone, 'AAACILENTAAA3');
         $this->assertEquals($newclient->adress, 'AAACILENTAAA3');
         $this->assertEquals($newclient->type, 'AAACILENTAAA3');
+    }
+    
+    public function test_product_update_route(): void
+    {
+        $user = User::find(1);
+
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+        
+        $this->post('/products', [
+            'name' => 'product1',
+            'description' => 'product1',
+            'price' => 10,
+            'stock' => 10,
+            'monthly_quota' => 10,
+            'duration' => '2000-01-01'
+        ]);
+
+        $all = Product::all();
+        $lastNumber = count($all) + 1;
+        $lastProduct = Product::find($lastNumber);
+
+        $this->put('/products'. '/' . $lastNumber, [
+            'name' => 'PRODUCTOYE',
+            'description' => 'PRODUCTOYE',
+            'price' => 20,
+            'stock' => 20,
+            'monthly_quota' => 20,
+            'duration' => '1004-10-10'
+        ]);
+
+        $newProduct = Product::find($lastNumber);
+
+        $this->assertNotEquals($lastProduct->name, $newProduct->name);
+        $this->assertNotEquals($lastProduct->surname, $newProduct->surname);
+        $this->assertNotEquals($lastProduct->email, $newProduct->email);
+        $this->assertNotEquals($lastProduct->phone, $newProduct->phone);
+        $this->assertNotEquals($lastProduct->adress, $newProduct->adress);
+        $this->assertNotEquals($lastProduct->type, $newProduct->type);
+
+        $this->assertEquals($newProduct->name, 'PRODUCTOYE');
+        $this->assertEquals($newProduct->description, 'PRODUCTOYE');
+        $this->assertEquals($newProduct->price, 20);
+        $this->assertEquals($newProduct->stock, 20);
+        $this->assertEquals($newProduct->monthly_quota, 20);
+        $this->assertEquals($newProduct->duration, '1004-10-10');
     }
 }

@@ -12,15 +12,17 @@ class AlertController extends Controller
      */
     public function index()
     {
-        //
+        $data = Alert::all();
+        return view('alert_module.index', ['alerts' => $data]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('alert_module.create');
     }
 
     /**
@@ -28,7 +30,8 @@ class AlertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alert::create($request->all());
+        return redirect('/alerts');
     }
 
     /**
@@ -36,7 +39,7 @@ class AlertController extends Controller
      */
     public function show(Alert $alert)
     {
-        //
+        return view('alert_module.show', ['alert' => $alert]);
     }
 
     /**
@@ -44,7 +47,9 @@ class AlertController extends Controller
      */
     public function edit(Alert $alert)
     {
-        //
+        return view('alert_module.edit', [
+            'alert' => $alert 
+        ]);
     }
 
     /**
@@ -52,7 +57,8 @@ class AlertController extends Controller
      */
     public function update(Request $request, Alert $alert)
     {
-        //
+        $alert->update($request->all());
+        return redirect('/alerts');
     }
 
     /**
@@ -60,6 +66,7 @@ class AlertController extends Controller
      */
     public function destroy(Alert $alert)
     {
-        //
+        $alert->delete();
+        return redirect('/alerts');
     }
 }

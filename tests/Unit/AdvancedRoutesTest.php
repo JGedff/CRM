@@ -66,4 +66,32 @@ class AdvancedRoutesTest extends TestCase
 
         $response->assertStatus(200);
     }
+    
+    public function test_product_show_route(): void
+    {
+        $user = User::find(1);
+        
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->get('/products/1');
+
+        $response->assertStatus(200);
+    }
+    
+    public function test_product_edit_route(): void
+    {
+        $user = User::find(1);
+        
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $response = $this->get('/products/1/edit');
+
+        $response->assertStatus(200);
+    }
 }
