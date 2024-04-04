@@ -43,10 +43,10 @@ Route::middleware('auth')->group(function () {
         return view('test');
     });
     
-    Route::resource('client', ClientController::class);
-    Route::resource('saleProposal', SaleProposalController::class);
-    Route::resource('product', ProductController::class);
-    Route::resource('alert', AlertController::class);
+    Route::resource('clients', ClientController::class);
+    Route::resource('saleProposals', SaleProposalController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('alerts', AlertController::class);
 });
 
 require __DIR__.'/auth.php';

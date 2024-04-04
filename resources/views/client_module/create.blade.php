@@ -9,7 +9,7 @@
                 <div class="card shadow-sm">               
                     <div class="card-body mt-3 mx-3">
 
-                        <form method="POST" action="/client">
+                        <form method="POST" action="/clients">
                             @csrf
                             @method('POST')
                 
@@ -39,6 +39,9 @@
                 
                             <!-- Address -->
                             <div class="text-start mb-5">
+<<<<<<< HEAD
+                                <label class="form-label ms-2" for="adress">Address</label>
+=======
                                 <label class="form-label ms-2" for="address">Address</label>
                                 <input type="text" class="form-control w-full text-body-secondary" name="adress" id="adress" required />
                             </div>

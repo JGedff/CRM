@@ -15,13 +15,14 @@ class ProductController extends Controller
         $data = Product::all();
         return view ('products_module.index', ['products' => $data]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('create_products');
+        return view('products_module.create');
     }
 
     /**
@@ -38,7 +39,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products_module.show', ['product' => $product]);
     }
 
     /**
@@ -46,7 +47,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products_module.edit', [
+            'product' => $product 
+        ]);
     }
 
     /**
@@ -54,7 +57,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return redirect('/products');
     }
 
     /**
@@ -62,6 +66,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect('/products');
     }
 }
