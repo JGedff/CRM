@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proposal;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class ProposalController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProposalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Proposal $proposal)
+    public function show(Sale $sale)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProposalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Proposal $proposal)
+    public function edit(Sale $sale)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProposalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Proposal $proposal)
+    public function update(Request $request, Sale $sale)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProposalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Proposal $proposal)
+    public function destroy(Sale $sale)
     {
         //
     }

@@ -2,10 +2,11 @@
 
 @section('header')
 
+    {{-- TOP NAVBAR --}}
     <nav class="navbar navbar-expand-lg py-0 px-2 topNavbar">
         <div class="container-fluid px-0">
-            <a class="navbar-brand ps-2" href="">
-                <img class="nbIcon" src="{{ asset('img\navicon_blai.png') }}" alt="">
+            <a class="navbar-brand ps-2 my-2">
+                <img class="nbIcon" src="{{ asset('img\favicon.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -16,10 +17,13 @@
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/main">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="">Option 2</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/client">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="">Option 3</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/product">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposal">Sale proposal</a>
                     </li>
                 </ul>
 
@@ -29,11 +33,11 @@
                         {{ Auth::user()->name }}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="dropdown-item fw-bold">Sortir</button>
+                                <button type="submit" class="dropdown-item fw-bold">Logout</button>
                             </form>
                         </li>
                     </ul>
@@ -41,5 +45,18 @@
             </div>
         </div>
     </nav>
+
+    {{-- SECOND NAVBAR --}}
+    <div class="d-flex ps-3 p-2 justify-content-between align-middle shadow navbar2">
+        <div class="align-middle">
+            <h4 class="mb-0">
+                Que quereis poner aqui?
+            </h4>                
+        </div>
+        <div class="d-flex">
+            <!-- Botón nuevo curso -->
+            <a class="btn btn-success btn-sm me-2 my-0 nbButton" href="" role="button">Button</a>
+        </div>
+    </div>
 
 @endsection

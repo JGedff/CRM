@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SaleProposal;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class SaleProposalController extends Controller
@@ -12,23 +13,28 @@ class SaleProposalController extends Controller
      */
     public function index()
     {
-        //
+        $data = SaleProposal::all();
+        return view ('proposals_module.index', ['saleProposals' => $data]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Client $client)
     {
-        //
+        return view('proposals_module.create', ['client' => $client]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Client $client)
     {
-        //
+        $req = $request->all();
+        $req['client_id'] = $client->id;
+
+        $holiday = SaleProposal::create($req);
+        return redirect ('/clients/' . $client->client_id);
     }
 
     /**
@@ -36,30 +42,39 @@ class SaleProposalController extends Controller
      */
     public function show(SaleProposal $saleProposal)
     {
-        //
+        return view('proposals_module.show', ['saleProposal' => $saleProposal]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SaleProposal $saleProposal)
+    public function edit(Client $client, SaleProposal $saleProposal)
     {
-        //
+        return view('proposals_module.edit', [
+            'client' => $client,
+            'saleProposal' => $saleProposal   
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SaleProposal $saleProposal)
+    public function update(Request $request, Client $client, SaleProposal $saleProposal)
     {
-        //
+        $req = $request->all();
+        array_push($req, 'client_id');
+        $req['client_id'] = $client->id;
+
+        $saleProposal->update($request->all());
+        return redirect('/clients/' . $saleProposal->client_id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SaleProposal $saleProposal)
+    public function destroy(Client $client, SaleProposal $saleProposal)
     {
-        //
+        $saleProposal->delete();
+        return redirect('/clients/' . $client->id);
     }
 }
