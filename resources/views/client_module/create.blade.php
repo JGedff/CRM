@@ -39,17 +39,14 @@
                 
                             <!-- Address -->
                             <div class="text-start mb-5">
-<<<<<<< HEAD
                                 <label class="form-label ms-2" for="adress">Address</label>
-=======
-                                <label class="form-label ms-2" for="address">Address</label>
-                                <input type="text" class="form-control w-full text-body-secondary" name="adress" id="adress" required />
+                                <input type="text" class="form-control w-full text-body-secondary" name="adress" id="adress" placeholder="c/ Street, 10" required autofocus />
                             </div>
                 
                             <!-- Client type -->
                             <div class="text-start mb-5">
-                                <label class="form-label ms-2" for="client_type">Client type</label>
-                                <input type="text" class="form-control w-full text-body-secondary" name="client_type" id="client_type" required />
+                                <label class="form-label ms-2" for="type">Client type</label>
+                                <input type="text" class="form-control w-full text-body-secondary" name="type" id="type" placeholder="Ex: Particular/Empresa" required autofocus />
                             </div>
 
                             <div class="mb-3 row">

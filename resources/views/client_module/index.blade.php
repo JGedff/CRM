@@ -41,7 +41,7 @@
     <div class="row justify-content-center">
 
         <!--New client card-->
-        <a href="/client/create" class="card m-4 p-3 align-items-center informationCard">
+        <a href="/clients/create" class="card m-4 p-3 align-items-center informationCard">
             <div class="d-flex justify-content-center p-2">
                 <h4>Add new client</h4>
             </div>

@@ -17,13 +17,13 @@
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/main">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/client">Clients</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/clients">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/product">Products</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposal">Sale proposal</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposals">Sale proposal</a>
                     </li>
                 </ul>
 
