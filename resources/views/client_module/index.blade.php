@@ -39,50 +39,50 @@
     </div> --}}
 
     <div class="row justify-content-center">
-        <!--New landlord card-->
-        <button class="card m-4 p-3 align-items-center informationCard" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+        <!--New client card-->
+        <a href="/client/create" class="card m-4 p-3 align-items-center informationCard">
             <div class="d-flex justify-content-center p-2">
-                <h4>Add new landlord</h4>
+                <h4>Add new client</h4>
             </div>
             <div class="d-flex justify-content-center p-2">
-                <img src="../img/add_user_nobg.png">
+                <img src="{{ asset('img\add_user_nobg.png') }}">
             </div>
-        </button>
+        </a>
 
-        <!--Landlords cards-->
-        <?php
-        $landlords = $_SESSION['landlords'];
-        $n = count($landlords);
+        <!--Clients cards-->
+        @foreach ($clients as $client)
 
-        for ($i = 0; $i < $n; $i++) {
-            echo '
-                <a href="#" class="card m-4 p-3 informationCard">
-                    <div class="d-grid gap-2 d-md-flex">
-                        <div class="col justify-content-center ps-1">
-                            <div class="row">
-                                <h3 class="w-100">' . $landlords[$i]['name'] . ' </br></h3>
-                            </div>
-                            <div class="row">
-                                <h4 class="w-100">' . $landlords[$i]['surnames'] . '</h4>
-                            </div>
-                        </div>
-                        <div class="col d-flex justify-content-center">
-                            <img class="border border-secondary rounded" src="' . $landlords[$i]['picture'] . '">
-                        </div>
-                    </div>
-                    <div class="justify-content-start pt-1">
+            <a href="#" class="card m-4 p-3 informationCard">
+                <div class="d-grid gap-2 d-md-flex">
+                    <div class="col justify-content-center ps-1">
                         <div class="row">
-                            <i class="bi bi-telephone"></i>
-                            ' . $landlords[$i]['phone_number'] . '<br>
+                            <h3 class="w-100">{{ $client->name }}</h3><br>
                         </div>
                         <div class="row">
-                            ' . $landlords[$i]['email'] . '<br>
+                            <h4 class="w-100">{{ $client->surname }}</h4>
                         </div>
                     </div>
-                </a>
-            ';
-        }
-        ?>
+                </div>
+                <div class="justify-content-start pt-1">
+                    <div class="row">
+                        <i class="bi bi-telephone"></i>
+                        {{ $client->phone }}<br>
+                    </div>
+                    <div class="row">
+                        {{ $client->email }}<br>
+                    </div>
+                    <div class="row">
+                        {{ $client->adress }}<br>
+                    </div>
+                    <div class="row">
+                        {{ $client->type }}<br>
+                    </div>
+                </div>
+            </a>
+
+        @endforeach
+
     </div>
 
 @endsection
