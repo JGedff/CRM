@@ -20,10 +20,10 @@
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/client">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="">Option 3</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/product">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="test">Testing</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposal">Sale proposal</a>
                     </li>
                 </ul>
 

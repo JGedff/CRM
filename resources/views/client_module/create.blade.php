@@ -39,7 +39,11 @@
                 
                             <!-- Address -->
                             <div class="text-start mb-5">
+<<<<<<< HEAD
                                 <label class="form-label ms-2" for="adress">Address</label>
+=======
+                                <label class="form-label ms-2" for="address">Address</label>
+>>>>>>> origin/Samu-back-migrations
                                 <input type="date" class="form-control w-full text-body-secondary" name="adress" id="adress" required />
                             </div>
                 

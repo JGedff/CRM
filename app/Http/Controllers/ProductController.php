@@ -13,7 +13,11 @@ class ProductController extends Controller
     public function index()
     {
         $data = Product::all();
+<<<<<<< HEAD
         return view('products_module.index', ['products' => $data]);
+=======
+        return view ('products_module.index', ['products' => $data]);
+>>>>>>> origin/Samu-back-migrations
     }
     
 
