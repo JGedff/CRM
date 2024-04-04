@@ -18,7 +18,7 @@
     <div class="container mt-5 mb-4">
         <div class="card text-center shadow-sm">
             <div class="card-header ps-4 fs-2 fw-semibold text-start">
-                Mòduls
+                PRODUCTOS DISPONIBLES
             </div>
             <div class="card-body">
                 @if (count($products) > 0)
