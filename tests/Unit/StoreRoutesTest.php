@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Client;
 use App\Models\Product;
+use App\Models\SaleProposal;
 use App\Models\User;
 use App\Models\Alert;
 use Tests\TestCase;
@@ -92,5 +93,29 @@ class StoreRoutesTest extends TestCase
         $this->assertEquals($newProduct->stock, 10);
         $this->assertEquals($newProduct->monthly_quota, 10);
         $this->assertEquals($newProduct->duration, '2000-01-01');
+    }
+    
+    public function test_create_new_sale_proposal(): void
+    {
+        $user = User::find(1);
+
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->post('/clients/2/saleProposals', [
+            'state' => 'sended',
+            'quantity_sold' => 10,
+            'total_price' => 10
+        ]);
+
+        $all = SaleProposal::all();
+        $newSale = count($all) + 3;
+        $newSaleProposals = SaleProposal::find($newSale);
+
+        $this->assertEquals($newSaleProposals->state, 'sended');
+        $this->assertEquals($newSaleProposals->quantity_sold, 10);
+        $this->assertEquals($newSaleProposals->total_price, 10);
     }
 }

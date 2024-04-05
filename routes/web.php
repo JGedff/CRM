@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::resource('clients', ClientController::class);
-    Route::resource('saleProposals', SaleProposalController::class);
+    Route::resource('clients.saleProposals', SaleProposalController::class);
     Route::resource('products', ProductController::class);
     Route::resource('alerts', AlertController::class);
 });

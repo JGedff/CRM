@@ -93,32 +93,4 @@ class BasicRoutesTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
-    public function test_sale_proposal_index_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/saleProposals');
-
-        $response->assertStatus(200);
-    }
-
-    public function test_sale_proposal_create_route(): void
-    {
-        $user = User::find(1);
-        
-        $response = $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-
-        $response = $this->get('/saleProposals/create');
-
-        $response->assertStatus(200);
-    }
 }
