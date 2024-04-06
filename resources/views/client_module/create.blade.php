@@ -52,7 +52,7 @@
                             <div class="mb-3 row">
                                 <div class="text-end">
                                     <!-- Btn retroceder -->
-                                    <a class="btn btn-secondary me-2" href="/client" role="button">Cancel</a>
+                                    <a class="btn btn-secondary me-2" href="/clients" role="button">Cancel</a>
                                     <!-- Btn crear -->
                                     <button type="submit" class="btn btn-success" role="button">Add client</button>
                                 </div>

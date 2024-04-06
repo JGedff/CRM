@@ -23,7 +23,7 @@
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposals">Sale proposal</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposals">Sale proposals</a>
                     </li>
                 </ul>
 
@@ -50,7 +50,7 @@
     <div class="d-flex ps-3 p-2 justify-content-between align-middle shadow navbar2">
         <div class="align-middle">
             <h4 class="mb-0">
-                Que quereis poner aqui?
+                [PONER CONTENIDO]
             </h4>                
         </div>
         <div class="d-flex">

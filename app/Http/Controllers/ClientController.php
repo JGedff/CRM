@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar todos los clientes
      */
     public function index()
     {
-        $data = Client::all();
-        return view('client_module.index', ['clients' => $data]);
+        $clients = Client::all();
+        return view('client_module.index', ['clients' => $clients]);
     }
     
 
     /**
-     * Show the form for creating a new resource.
+     * Formulario de creación nuevo cliente
      */
     public function create()
     {
@@ -26,7 +26,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacenar nuevo cliente en BD
      */
     public function store(Request $request)
     {
@@ -35,7 +35,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar cliente específico
      */
     public function show(Client $client)
     {
@@ -43,7 +43,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Formulario para editar cliente específico
      */
     public function edit(Client $client)
     {
@@ -53,7 +53,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Almacenar cambios del cliente en BD
      */
     public function update(Request $request, Client $client)
     {
@@ -62,7 +62,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar cliente específico
      */
     public function destroy(Client $client)
     {

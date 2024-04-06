@@ -1,5 +1,8 @@
+@extends('master.navbar')
+
+@section('main')
+
 <div>
-    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
     {{$client->name}}
     <br>
     {{$client->surname}}
@@ -14,7 +17,7 @@
     <br>
 
     
-    <form action="/clients/1" method="POST">
+    <form action="/clients/{{ $client->id }}" method="POST">
         @csrf
         <input type="hidden" name="_method" value="PATCH" />
         <input type="text" name='name' id='name' />
@@ -26,3 +29,5 @@
         <button>SEND</button>
     </form>
 </div>
+
+@endsection
