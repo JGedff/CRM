@@ -4,18 +4,17 @@
 
     <div class="row justify-content-center px-5">
 
-        {{-- <div class="container text-end my-4">
-                <a type="button" class="btn btn-primary" href="/product/create">
-                    Add new product
-                </a>
-        </div> --}}
-
         @if ($products->isEmpty())
 
             <div class="card border-warning bg-warning-subtle mx-5 mb-5">
                 <div class="card-body text-center">
                     <h2 class="fw-semibold">No products found!</h2>
-                    <h4 class="mt-3">Start adding new products by clicking the button "Add new product"</h3>
+                    <div class="d-flex text-center justify-content-center align-items-center">
+                        <h4 class="mt-3">Start adding new products by clicking the button "Add new product"</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right ms-3" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         

@@ -55,8 +55,11 @@
         </div>
         <!-- Botones opcionales -->
         <div class="d-flex">
+            @if (request()->is('saleProposals'))
+                <a class="btn btn-success btn-sm me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a>
+            @endif
             @if (request()->is('products'))
-                <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>                
+                <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>
             @endif
         </div>
     </div>

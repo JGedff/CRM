@@ -9,7 +9,7 @@
             <div class="card border-warning bg-warning-subtle mx-5 mb-5">
                 <div class="card-body text-center">
                     <h2 class="fw-semibold">No clients found!</h2>
-                    <h4 class="mt-3">Start creating clients by clicking the button below</h3>
+                    <h4 class="mt-3">Start creating clients by clicking the card below</h4>
                 </div>
             </div>
 
