@@ -53,9 +53,11 @@
                 [PONER CONTENIDO]
             </h4>                
         </div>
+        <!-- Botones opcionales -->
         <div class="d-flex">
-            <!-- Botón nuevo curso -->
-            <a class="btn btn-success btn-sm me-2 my-0 nbButton" href="" role="button">Button</a>
+            @if (request()->is('products'))
+                <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>                
+            @endif
         </div>
     </div>
 

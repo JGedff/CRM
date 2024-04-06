@@ -12,10 +12,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::all();
-        return view ('products_module.index', ['products' => $data]);
+        $products = Product::all();
+        $products_name = Product::orderBy('name')->get();
+
+        return view ('products_module.index', [
+            'products' => $products,
+            'products_name' => $products_name,
+        ]);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +35,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         Product::create($request->all());
-        return redirect('/product');
+        return redirect('/products');
     }
 
     /**
@@ -47,9 +51,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products_module.edit', [
-            'product' => $product 
-        ]);
+        return view('products_module.edit', ['product' => $product]);
     }
 
     /**

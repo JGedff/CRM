@@ -13,8 +13,8 @@ class SaleProposalController extends Controller
      */
     public function index()
     {
-        $data = SaleProposal::all();
-        return view ('proposals_module.index', ['saleProposals' => $data]);
+        $sale_proposals = SaleProposal::all();
+        return view ('proposals_module.index', ['saleProposals' => $sale_proposals]);
     }
 
     /**

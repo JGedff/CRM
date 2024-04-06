@@ -47,9 +47,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('client_module.edit', [
-            'client' => $client 
-        ]);
+        return view('client_module.edit', ['client' => $client]);
     }
 
     /**
