@@ -16,11 +16,19 @@ class SaleProposal extends Model
         'total_price'
     ];
 
-    public function clients() {
+    /**
+     * Obtains the CLIENT related to the sale proposal
+     */
+    public function client()
+    {
         return $this->belongsTo(Client::class);
     }
-    
-    public function products() {
+
+    /**
+     * Obtains the PRODUCTS related to the sale proposal
+     */
+    public function products()
+    {
         return $this->belongsToMany(Product::class);
     }
 }

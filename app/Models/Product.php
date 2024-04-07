@@ -18,7 +18,11 @@ class Product extends Model
         'duration'
     ];
 
-    public function saleProposals() {
+    /**
+     * Obtains the SALE PROPOSALS related to the product
+     */
+    public function saleProposals()
+    {
         return $this->belongsToMany(SaleProposal::class);
     }
 }

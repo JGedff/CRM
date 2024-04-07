@@ -29,8 +29,8 @@
         @foreach ($clients as $client)
 
             <a href="/clients/{{ $client->id }}" class="card m-4 px-3 py-2 informationCard">
-                <div class="card-header pt-0">
-                    <span class="fs-2">{{ $client->name . ' ' . $client->surname }}</span>
+                <div class="card-header bg-white pt-0">
+                    <span class="fs-3">{{ $client->name . ' ' . $client->surname }}</span>
                 </div>
                 <div class="card-body justify-content-start pt-3">
                     <div class="row mb-1">

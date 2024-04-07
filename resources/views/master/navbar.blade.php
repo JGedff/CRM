@@ -55,8 +55,14 @@
         </div>
         <!-- Botones opcionales -->
         <div class="d-flex">
-            @if (request()->is('saleProposals'))
-                <a class="btn btn-success btn-sm me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a>
+            @if (request()->is('saleProposals') || request()->is('saleProposals/selection/*'))
+                <div class="btn-group btn-group-sm my-0 me-4 border border-light" role="group">
+                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{cancelled}">Cancelled</a>
+                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{pending}">Pending</a>
+                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{finished}">Finished</a>
+                    <a type="button" class="btn btn-primary" href="/saleProposals">Show all</a>
+                </div>
+                <a class="btn btn-success btn-sm ms-4 me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a>
             @endif
             @if (request()->is('products'))
                 <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>

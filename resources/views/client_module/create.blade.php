@@ -15,38 +15,38 @@
                 
                             <!-- Name -->
                             <div class="text-start mb-4 pb-3">
-                                <label class="form-label ms-2" for="name" >Name</label>
+                                <label class="form-label ms-2" for="name">Name <span class="text-danger fw-bolder">*</span></label>
                                 <input type="text" class="form-control w-full" name="name" id="name" placeholder="Ex: John" required autofocus />
                             </div>
                 
                             <!-- Surname -->
                             <div class="text-start mb-4 pb-3">
-                                <label class="form-label ms-2" for="surname" >Surname</label>
-                                <input type="text" class="form-control w-full" name="surname" id="surname" placeholder="Ex: Doe" required autofocus />
+                                <label class="form-label ms-2" for="surname">Surname</label>
+                                <input type="text" class="form-control w-full" name="surname" id="surname" placeholder="Ex: Doe" autofocus />
                             </div>
                 
                             <!-- Email -->
                             <div class="text-start mb-4 pb-3">
-                                <label class="form-label ms-2" for="email" >Email</label>
+                                <label class="form-label ms-2" for="email">Email <span class="text-danger fw-bolder">*</span></label>
                                 <input type="text" class="form-control w-full" name="email" id="email" placeholder="Ex: name@email.com" required autofocus />
                             </div>
                 
                             <!-- Phone -->
                             <div class="text-start mb-4 pb-3">
-                                <label class="form-label ms-2" for="phone" >Phone</label>
+                                <label class="form-label ms-2" for="phone">Phone <span class="text-danger fw-bolder">*</span></label>
                                 <input type="text" class="form-control w-full" name="phone" id="phone" placeholder="Ex: 612345678" required autofocus />
                             </div>
                 
                             <!-- Address -->
                             <div class="text-start mb-5">
-                                <label class="form-label ms-2" for="adress">Address</label>
-                                <input type="text" class="form-control w-full text-body-secondary" name="adress" id="adress" placeholder="c/ Street, 10" required autofocus />
+                                <label class="form-label ms-2" for="adress">Address <span class="text-danger fw-bolder">*</span></label>
+                                <input type="text" class="form-control w-full" name="adress" id="adress" placeholder="Ex: c/ Street, 10" required autofocus />
                             </div>
                 
                             <!-- Client type -->
                             <div class="text-start mb-5">
-                                <label class="form-label ms-2" for="type">Client type</label>
-                                <input type="text" class="form-control w-full text-body-secondary" name="type" id="type" placeholder="Ex: Particular/Empresa" required autofocus />
+                                <label class="form-label ms-2" for="type">Client type <span class="text-danger fw-bolder">*</span></label>
+                                <input type="text" class="form-control w-full" name="type" id="type" placeholder="Ex: Individual, Company, ..." required autofocus />
                             </div>
 
                             <div class="mb-3 row">

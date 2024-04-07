@@ -14,7 +14,38 @@ class SaleProposalController extends Controller
     public function index()
     {
         $sale_proposals = SaleProposal::all();
-        return view ('proposals_module.index', ['saleProposals' => $sale_proposals]);
+        $clients = Client::all();
+
+        return view('proposals_module.index', [
+            'saleProposals' => $sale_proposals,
+            'clients' => $clients,
+        ]);
+    }
+
+    public function clientSales(Client $client)
+    {
+        // Añadir cosas para mostrar la lista de saleProposals de un cliente específico.
+        // Tener en cuenta que el botón 'Sale proposals' de clients/show tiene que enviar la id del cliente,
+        // para poder sacar las saleProposals que tienen su client_id.
+    }
+
+    public function specificSalesListing($state)
+    {
+        $sales = SaleProposal::all();
+        $clients = CLient::all();
+
+        $sale_proposals = [];
+
+        foreach ($sales as $sale) {
+            if ($sale->state == $state) {
+                $sale_proposals[] = $sale;
+            }
+        }
+
+        return view('proposals_module.index', [
+            'saleProposals' => $sale_proposals,
+            'clients' => $clients,
+        ]);
     }
 
     /**
@@ -22,7 +53,9 @@ class SaleProposalController extends Controller
      */
     public function create(Client $client)
     {
-        return view('proposals_module.create', ['client' => $client]);
+        $clients = Client::all();
+
+        return view('proposals_module.create', ['clients' => $clients]);
     }
 
     /**
@@ -34,7 +67,7 @@ class SaleProposalController extends Controller
         $req['client_id'] = $client->id;
 
         $holiday = SaleProposal::create($req);
-        return redirect ('/clients/' . $client->client_id);
+        return redirect('/clients/' . $client->client_id);
     }
 
     /**
@@ -52,7 +85,7 @@ class SaleProposalController extends Controller
     {
         return view('proposals_module.edit', [
             'client' => $client,
-            'saleProposal' => $saleProposal   
+            'saleProposal' => $saleProposal
         ]);
     }
 

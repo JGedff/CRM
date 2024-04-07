@@ -4,8 +4,7 @@
 
     <div class="row justify-content-center px-5">
 
-        @if ($saleProposals->isEmpty())
-
+        @if (empty($saleProposals) || $saleProposals->isEmpty())
             <div class="card border-warning bg-warning-subtle mx-5 mb-5">
                 <div class="card-body text-center justify-content-center align-items-center">
                     <h2 class="fw-semibold">No sale proposals found!</h2>
@@ -16,10 +15,8 @@
                         </svg>
                     </div>
                 </div>
-            </div>
-        
-        @else
-        
+            </div>        
+        @else        
             <div class="container mt-5 mb-4">
                 <div class="card text-center shadow-sm">
                     <div class="card-header ps-4 fs-2 fw-semibold text-start">
@@ -31,7 +28,7 @@
 
                                 <thead>
                                     <th>Sale ID</th>
-                                    <th>Client ID</th>
+                                    <th>Client (id)</th>
                                     <th>Creation date</th>
                                     <th>State</th>
                                     <th>Quantity sold</th>
@@ -43,7 +40,11 @@
                                     @foreach ($saleProposals as $sale)
                                         <tr class="table-row align-middle">
                                             <td>{{ $sale->id }}</td>
-                                            <td>{{ $sale->client_id }}</td>
+                                            @foreach ($clients as $client)
+                                                @if ($client->id == $sale->client_id)
+                                                    <td>{{ $client->name }} ({{ $client->id }})</td>
+                                                @endif
+                                            @endforeach
                                             <td>{{ $sale->created_at }} €</td>
                                             <td>{{ $sale->state }}</td>
                                             <td>{{ $sale->quantity_sold }} €</td>
@@ -79,7 +80,6 @@
                     </div>
                 </div>
             </div>
-
         @endif
 
 @endsection
