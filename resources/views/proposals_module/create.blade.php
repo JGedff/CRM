@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    {{--
+<xmp>
     <div class="container mt-5 py-3">
         <div class="row">
             <div class="col-sm-2"></div>
@@ -71,6 +71,6 @@
             </div>
         </div>
     </div>
-    --}}
+</xmp>
     
 @endsection
