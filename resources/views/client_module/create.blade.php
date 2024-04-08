@@ -34,23 +34,19 @@
                             <!-- Phone -->
                             <div class="text-start mb-4 pb-3">
                                 <label class="form-label ms-2" for="phone" >Phone</label>
-                                <input type="text" class="form-control w-full" name="phone" id="phone" placeholder="Ex: 2023-2024" required autofocus />
+                                <input type="text" class="form-control w-full" name="phone" id="phone" placeholder="Ex: 612345678" required autofocus />
                             </div>
                 
                             <!-- Address -->
                             <div class="text-start mb-5">
-<<<<<<< HEAD
                                 <label class="form-label ms-2" for="adress">Address</label>
-=======
-                                <label class="form-label ms-2" for="address">Address</label>
->>>>>>> origin/Samu-back-migrations
-                                <input type="date" class="form-control w-full text-body-secondary" name="adress" id="adress" required />
+                                <input type="text" class="form-control w-full text-body-secondary" name="adress" id="adress" placeholder="c/ Street, 10" required autofocus />
                             </div>
                 
                             <!-- Client type -->
                             <div class="text-start mb-5">
                                 <label class="form-label ms-2" for="type">Client type</label>
-                                <input type="date" class="form-control w-full text-body-secondary" name="type" id="type" required />
+                                <input type="text" class="form-control w-full text-body-secondary" name="type" id="type" placeholder="Ex: Particular/Empresa" required autofocus />
                             </div>
 
                             <div class="mb-3 row">
