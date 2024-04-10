@@ -7,7 +7,8 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: azure; /* Blai, seguimos sin saber Azure! */
+    background-color: azure;
+    /* Blai, seguimos sin saber Azure! */
 }
 
 /* NAVBAR */

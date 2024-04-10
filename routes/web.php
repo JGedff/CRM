@@ -45,10 +45,10 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::resource('clients', ClientController::class);
-    //Route::resource('clients.saleProposals', [SaleProposalController::class, 'clientSales']);     <-- NO FUNCIONA
+    Route::resource('clients.saleProposals', SaleProposalController::class);
     Route::resource('products', ProductController::class);
     Route::get('saleProposals/selection/{state}', [SaleProposalController::class, 'specificSalesListing']);
-    Route::resource('saleProposals', SaleProposalController::class);
+    //Route::resource('saleProposals', SaleProposalController::class);
     Route::resource('alerts', AlertController::class);
 });
 
