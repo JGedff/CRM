@@ -27,10 +27,6 @@ Route::get('/dashboard', function() {
         return redirect('/main');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-/* Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard'); */
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -39,16 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::get('main', function() {
         return view('main');
     });
-
-    Route::get('test', function() {
-        return view('test');
-    });
     
     Route::resource('clients', ClientController::class);
     Route::resource('clients.saleProposals', SaleProposalController::class);
-    Route::resource('products', ProductController::class);
     Route::get('saleProposals/selection/{state}', [SaleProposalController::class, 'specificSalesListing']);
-    //Route::resource('saleProposals', SaleProposalController::class);
+    Route::get('saleProposals', [SaleProposalController::class, 'allSaleProposals']);
+    Route::resource('products', ProductController::class);
     Route::resource('alerts', AlertController::class);
 });
 

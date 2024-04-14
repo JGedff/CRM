@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SaleProposal;
 use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SaleProposalController extends Controller
@@ -22,11 +23,15 @@ class SaleProposalController extends Controller
         ]);
     }
 
-    public function clientSales(Client $client)
+    public function allSaleProposals()
     {
-        // Añadir cosas para mostrar la lista de saleProposals de un cliente específico.
-        // Tener en cuenta que el botón 'Sale proposals' de clients/show tiene que enviar la id del cliente,
-        // para poder sacar las saleProposals que tienen su client_id.
+        // Añadir cosas para mostrar la lista de saleProposals completa.
+        $sales = SaleProposal::all();
+        $clients = Client::all();
+
+        foreach ($sales as $sale) {
+            if ($sale->client_id == )
+        }
     }
 
     public function specificSalesListing($state)
@@ -54,15 +59,24 @@ class SaleProposalController extends Controller
     public function create(Client $client)
     {
         $clients = Client::all();
+        $products = Product::all();
 
-        return view('proposals_module.create', ['clients' => $clients]);
+        return view('proposals_module.create', [
+            'clients' => $clients,
+            'products' => $products,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request, Client $client)
-    {
+    {        
+        SaleProposal::create($request->all());
+        return redirect('/clients/' . $client->client_id);
+
+
+
         $req = $request->all();
         $req['client_id'] = $client->id;
 
