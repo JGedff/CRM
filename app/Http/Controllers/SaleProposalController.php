@@ -29,9 +29,9 @@ class SaleProposalController extends Controller
         $sales = SaleProposal::all();
         $clients = Client::all();
 
-        foreach ($sales as $sale) {
+        /* foreach ($sales as $sale) {
             if ($sale->client_id == )
-        }
+        } */
     }
 
     public function specificSalesListing($state)

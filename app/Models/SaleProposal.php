@@ -12,7 +12,8 @@ class SaleProposal extends Model
     protected $fillable = [
         'client_id',
         'state',
-        'quantity_sold',
+        'product_id',
+        'product_quantity',
         'total_price'
     ];
 

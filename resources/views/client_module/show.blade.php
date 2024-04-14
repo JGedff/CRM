@@ -48,7 +48,7 @@
             <!--Right options row1-->
             <div class="col-sm-6 pe-4">
                 <div class="d-flex px-0 align-items-center justify-content-end">
-                    <a class="btn btn-primary btn-sm py-0" href="" role="button">Sale proposals</a>
+                    <a class="btn btn-primary btn-sm py-0" href="/clients/{{ $client->id }}/saleProposals" role="button">See sale proposals</a>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
             <!--Right options row2-->
             <div class="col-sm-6 pe-4">
                 <div class="d-flex px-0 align-items-center justify-content-end">
-                    <a class="btn btn-primary btn-sm py-0 disabled" href="" role="button">Option</a>
+                    <a class="btn btn-success btn-sm py-0 disabled" href="/clients/{{ $client->id }}/saleProposals/create" role="button">Create sale proposal</a>
                 </div>
             </div>
         </div>
