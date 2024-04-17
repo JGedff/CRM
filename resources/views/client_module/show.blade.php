@@ -14,6 +14,7 @@
             </div>
             <div class="col-sm-2 pe-0 align-items-center align-middle">
                 <div class="d-flex justify-content-end pt-2">
+                    <!-- Edit btn -->
                     <a class="btn btn-active" href="/clients/{{ $client->id }}/edit" role="button">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" fill="currentColor" class="bi bi-trash-fill">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -21,6 +22,7 @@
                             </path>
                         </svg>
                     </a>
+                    <!-- Delete btn -->
                     <form method="POST" action="/clients/{{ $client->id }}">
                         @csrf
                         @method('DELETE')
@@ -35,8 +37,9 @@
         </div>
     </div>
     <div class="card-body justify-content-start pt-3">
+
+        <!--Row 1-->
         <div class="row ps-4 mb-2 fs-5">
-            <!--Phone-->
             <div class="col-sm-6 ps-0">
                 <div class="d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill me-2" viewBox="0 0 16 16">
@@ -44,16 +47,17 @@
                     </svg>
                     {{ $client->phone }}
                 </div>
-            </div>
-            <!--Right options row1-->
+            </div>            
+            <!--Show sales-->
             <div class="col-sm-6 pe-4">
                 <div class="d-flex px-0 align-items-center justify-content-end">
                     <a class="btn btn-primary btn-sm py-0" href="/clients/{{ $client->id }}/saleProposals" role="button">See sale proposals</a>
                 </div>
             </div>
         </div>
+
+        <!--Row 2-->
         <div class="row ps-4 mb-2 fs-5">
-            <!--Mail-->
             <div class="col-sm-6 ps-0">
                 <div class="d-flex px-0 align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
@@ -61,16 +65,17 @@
                     </svg>
                     {{ $client->email }}
                 </div>
-            </div>
-            <!--Right options row2-->
+            </div>            
+            <!--Create sale-->
             <div class="col-sm-6 pe-4">
                 <div class="d-flex px-0 align-items-center justify-content-end">
-                    <a class="btn btn-success btn-sm py-0 disabled" href="/clients/{{ $client->id }}/saleProposals/create" role="button">Create sale proposal</a>
+                    <a class="btn btn-success btn-sm py-0" href="{{ route('clients.saleProposals.create', ['client' => $client->id]) }}" role="button">Create sale proposal</a>
                 </div>
             </div>
         </div>
+
+        <!--Row 3-->
         <div class="row ps-4 mb-2 fs-5">
-            <!--Address-->
             <div class="col-sm-6 ps-0">
                 <div class="d-flex px-0 align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-signpost-2-fill me-2" viewBox="0 0 16 16">
@@ -79,15 +84,16 @@
                     {{ $client->adress }}<br>
                 </div>
             </div>
-            <!--Right options row3-->
+            <!--Option-->
             <div class="col-sm-6 pe-4">
                 <div class="d-flex px-0 align-items-center justify-content-end">
                     <a class="btn btn-primary btn-sm py-0 disabled" href="" role="button">Option</a>
                 </div>
             </div>
         </div>
+
+        <!--Row 4-->
         <div class="row ps-4 mb-2 fs-5">
-            <!--Type-->
             <div class="col-sm-6 ps-0">
                 <div class="d-flex px-0 align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle-fill me-2" viewBox="0 0 16 16">
@@ -96,7 +102,7 @@
                     {{ $client->type }}<br>
                 </div>
             </div>
-            <!--Right options row4-->
+            <!--Option-->
             <div class="col-sm-6 pe-4">
                 <div class="d-flex px-0 align-items-center justify-content-end">
                     <a class="btn btn-primary btn-sm py-0 disabled" href="" role="button">Option</a>
@@ -104,30 +110,12 @@
             </div>
         </div>
     
+        <!--Return btn-->
         <div class="row mt-4 border-top border-secondary-subtle">
             <div class="d-flex ps-3 pt-4 align-middle justify-content-center">
                 <a type="button" class="btn btn-secondary" href="/clients">
                     Return to clients
                 </a>
-                
-                {{-- <div class="d-flex justify-content-end">
-                    <a class="btn btn-active" href="/clients/{{ $client->id }}/edit" role="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" fill="currentColor" class="bi bi-trash-fill">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M20.8477 1.87868C19.6761 0.707109 17.7766 0.707105 16.605 1.87868L2.44744 16.0363C2.02864 16.4551 1.74317 16.9885 1.62702 17.5692L1.03995 20.5046C0.760062 21.904 1.9939 23.1379 3.39334 22.858L6.32868 22.2709C6.90945 22.1548 7.44285 21.8693 7.86165 21.4505L22.0192 7.29289C23.1908 6.12132 23.1908 4.22183 22.0192 3.05025L20.8477 1.87868ZM18.0192 3.29289C18.4098 2.90237 19.0429 2.90237 19.4335 3.29289L20.605 4.46447C20.9956 4.85499 20.9956 5.48815 20.605 5.87868L17.9334 8.55027L15.3477 5.96448L18.0192 3.29289ZM13.9334 7.3787L3.86165 17.4505C3.72205 17.5901 3.6269 17.7679 3.58818 17.9615L3.00111 20.8968L5.93645 20.3097C6.13004 20.271 6.30784 20.1759 6.44744 20.0363L16.5192 9.96448L13.9334 7.3787Z" fill="#0F0F0F">
-                            </path>
-                        </svg>
-                    </a>
-                    <form method="POST" action="/clients/{{ $client->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-active ms-2" type="submit" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="25" height="25" fill="currentColor" class="bi bi-trash-fill">
-                                <path fill="red" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div> --}}
             </div>
         </div>
 

@@ -32,6 +32,10 @@ class SaleProposalController extends Controller
         /* foreach ($sales as $sale) {
             if ($sale->client_id == )
         } */
+
+        return view('proposals_module.index', [
+            //...
+        ]);
     }
 
     public function specificSalesListing($state)
@@ -58,11 +62,10 @@ class SaleProposalController extends Controller
      */
     public function create(Client $client)
     {
-        $clients = Client::all();
         $products = Product::all();
 
         return view('proposals_module.create', [
-            'clients' => $clients,
+            'client' => $client,
             'products' => $products,
         ]);
     }

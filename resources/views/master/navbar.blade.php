@@ -23,7 +23,7 @@
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposals">Sale proposals</a>
+                        <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposals/all">Sale proposals</a>
                     </li>
                 </ul>
 
@@ -50,19 +50,19 @@
     <div class="d-flex ps-3 p-2 justify-content-between align-middle shadow navbar2">
         <div class="align-middle">
             <h4 class="mb-0">
-                [PONER CONTENIDO]
+                .
             </h4>                
         </div>
         <!-- Botones opcionales -->
         <div class="d-flex">
-            @if (request()->is('saleProposals') || request()->is('saleProposals/selection/*'))
+            @if (request()->is('saleProposals/all') || request()->is('saleProposals/selection/*'))
                 <div class="btn-group btn-group-sm my-0 me-4 border border-light" role="group">
                     <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{cancelled}">Cancelled</a>
                     <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{pending}">Pending</a>
                     <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{finished}">Finished</a>
-                    <a type="button" class="btn btn-primary" href="/saleProposals">Show all</a>
+                    <a type="button" class="btn btn-primary" href="/saleProposals/all">Show all</a>
                 </div>
-                <a class="btn btn-success btn-sm ms-4 me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a>
+                <!-- <a class="btn btn-success btn-sm ms-4 me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a> -->
             @endif
             @if (request()->is('products'))
                 <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>

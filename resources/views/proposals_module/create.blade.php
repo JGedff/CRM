@@ -2,13 +2,12 @@
 
 @section('main')
         
-    <div class="card mx-5 bg-danger">
-        <div class="card-body text-center">
-            <h1>TO DO</h1>
+    <div class="card mx-5 border-secondary bg-primary-subtle">
+        <div class="card-body">
+            <h1>Client {{ $client->name }} {{ $client->surname }} ({{ $client->id }})</h1>
         </div>
     </div>
 
-<xmp>
     <div class="container mt-5 py-3">
         <div class="row">
             <div class="col-sm-2"></div>
@@ -71,6 +70,5 @@
             </div>
         </div>
     </div>
-</xmp>
     
 @endsection
