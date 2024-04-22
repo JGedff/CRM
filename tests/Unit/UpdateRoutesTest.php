@@ -126,11 +126,11 @@ class UpdateRoutesTest extends TestCase
         $newProduct = Product::find($lastNumber);
 
         $this->assertNotEquals($lastProduct->name, $newProduct->name);
-        $this->assertNotEquals($lastProduct->surname, $newProduct->surname);
-        $this->assertNotEquals($lastProduct->email, $newProduct->email);
-        $this->assertNotEquals($lastProduct->phone, $newProduct->phone);
-        $this->assertNotEquals($lastProduct->adress, $newProduct->adress);
-        $this->assertNotEquals($lastProduct->type, $newProduct->type);
+        $this->assertNotEquals($lastProduct->description, $newProduct->description);
+        $this->assertNotEquals($lastProduct->price, $newProduct->price);
+        $this->assertNotEquals($lastProduct->stock, $newProduct->stock);
+        $this->assertNotEquals($lastProduct->monthly_quota, $newProduct->monthly_quota);
+        $this->assertNotEquals($lastProduct->duration, $newProduct->duration);
 
         $this->assertEquals($newProduct->name, 'PRODUCTOYE');
         $this->assertEquals($newProduct->description, 'PRODUCTOYE');
