@@ -18,7 +18,11 @@ class Client extends Model
         'type'
     ];
 
-    public function saleProposals() {
+    /**
+     * Obtains the SALE PROPOSALS related to the client
+     */
+    public function saleProposals()
+    {
         return $this->hasMany(SaleProposal::class);
     }
 }

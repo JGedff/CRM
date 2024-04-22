@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\SaleProposal;
 use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SaleProposalController extends Controller
 {
@@ -13,8 +15,69 @@ class SaleProposalController extends Controller
      */
     public function index()
     {
-        $data = SaleProposal::all();
-        return view ('proposals_module.index', ['saleProposals' => $data]);
+        $sale_proposals = SaleProposal::all();
+        $clients = Client::all();
+
+        return view('proposals_module.index', [
+            'saleProposals' => $sale_proposals,
+            'clients' => $clients,
+        ]);
+    }
+
+    public function clientSaleProposals($client)
+    {
+        /* $sale_proposals = SaleProposal::all();
+        $specific_sales = []; */
+
+        $sale_proposals = DB::table('sale_proposals')
+            ->where([
+                ['client_id', '=', $client],
+            ])->get();
+
+        /* foreach ($sale_proposals as $sale) {
+            if ($sale->client_id == $client) {
+                $specific_sales[] = $sale;
+            }
+        } */
+
+        return view('proposals_module.index', [
+            'saleProposals' => $sale_proposals,
+            'client' => $client,
+        ]);
+    }
+
+    public function allSaleProposals()
+    {
+        // Añadir cosas para mostrar la lista de saleProposals completa.
+        $sales = SaleProposal::all();
+        $clients = Client::all();
+
+        /* foreach ($sales as $sale) {
+            if ($sale->client_id == )
+        } */
+
+        return view('proposals_module.index', [
+            //...
+        ]);
+    }
+
+    public function specificSalesListing($state)
+    {
+        $sales = SaleProposal::all();
+        $clients = CLient::all();
+
+        $sale_proposals = [];
+
+        foreach ($sales as $sale) {
+            if ($sale->state == $state) {
+                $sale_proposals[] = $sale;
+            }
+        }
+
+        return view('proposals_module.index', [
+            'saleProposals' => $sale_proposals,
+            'clients' => $clients,
+        ]);
     }
 
     /**
@@ -22,7 +85,12 @@ class SaleProposalController extends Controller
      */
     public function create(Client $client)
     {
-        return view('proposals_module.create', ['client' => $client]);
+        $products = Product::all();
+
+        return view('proposals_module.create', [
+            'client' => $client,
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -30,17 +98,22 @@ class SaleProposalController extends Controller
      */
     public function store(Request $request, Client $client)
     {
+        SaleProposal::create($request->all());
+        return redirect('/clients/' . $client->client_id);
+
+
+
         $req = $request->all();
         $req['client_id'] = $client->id;
 
         $holiday = SaleProposal::create($req);
-        return redirect ('/clients/' . $client->client_id);
+        return redirect('/clients/' . $client->client_id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(SaleProposal $saleProposal)
+    public function show(Client $client, SaleProposal $saleProposal)
     {
         return view('proposals_module.show', ['saleProposal' => $saleProposal]);
     }
@@ -52,7 +125,7 @@ class SaleProposalController extends Controller
     {
         return view('proposals_module.edit', [
             'client' => $client,
-            'saleProposal' => $saleProposal   
+            'saleProposal' => $saleProposal
         ]);
     }
 
@@ -66,7 +139,7 @@ class SaleProposalController extends Controller
         $req['client_id'] = $client->id;
 
         $saleProposal->update($request->all());
-        return redirect('/clients/' . $saleProposal->client_id);
+        return redirect('/clients' . '/' . $saleProposal->client_id);
     }
 
     /**
@@ -75,6 +148,6 @@ class SaleProposalController extends Controller
     public function destroy(Client $client, SaleProposal $saleProposal)
     {
         $saleProposal->delete();
-        return redirect('/clients/' . $client->id);
+        return redirect('/clients' . '/' . $client->id);
     }
 }

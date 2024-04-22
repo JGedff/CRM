@@ -17,7 +17,6 @@ body {
 .nbIcon {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
 }
 
 .nbLink {
@@ -41,6 +40,19 @@ body {
 /* OTHERS */
 .smallFont {
     font-size: smaller;
+}
+
+.welcomeIcon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: azure;
+    /* Blai, seguimos sin saber Azure! */
+}
+
+.moduleIcon {
+    width: 150px;
+    height: 120px;
 }
 
 .informationCard {

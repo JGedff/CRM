@@ -14,16 +14,23 @@ return new class extends Migration
         Schema::create('sale_proposals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("state")->default("pending");
-            $table->integer("quantity_sold");
-            $table->double("total_price");
+            $table->string('state')->default("pending");
+            $table->integer('product_quantity');
+            $table->double('total_price');
 
-            //FK ClientID
+            /* FK ClientID */
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')
-                ->references("id")
-                ->on("clients")
+                ->references('id')
+                ->on('clients')
                 ->onDelete('cascade');
+            
+            /* FK ProductID */
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('no action');
         });
     }
 
