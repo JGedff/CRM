@@ -113,7 +113,7 @@ class SaleProposalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SaleProposal $saleProposal)
+    public function show(Client $client, SaleProposal $saleProposal)
     {
         return view('proposals_module.show', ['saleProposal' => $saleProposal]);
     }
@@ -139,7 +139,7 @@ class SaleProposalController extends Controller
         $req['client_id'] = $client->id;
 
         $saleProposal->update($request->all());
-        return redirect('/clients/' . $saleProposal->client_id);
+        return redirect('/clients' . '/' . $saleProposal->client_id);
     }
 
     /**
@@ -148,6 +148,6 @@ class SaleProposalController extends Controller
     public function destroy(Client $client, SaleProposal $saleProposal)
     {
         $saleProposal->delete();
-        return redirect('/clients/' . $client->id);
+        return redirect('/clients' . '/' . $client->id);
     }
 }

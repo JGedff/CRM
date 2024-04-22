@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\Client;
+use App\Models\SaleProposal;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Alert;
@@ -102,12 +103,12 @@ class UpdateRoutesTest extends TestCase
         ]);
         
         $this->post('/products', [
-            'name' => 'product1',
-            'description' => 'product1',
-            'price' => 10,
-            'stock' => 10,
-            'monthly_quota' => 10,
-            'duration' => '2000-01-01'
+            'name' => 'BBBB',
+            'description' => 'BBBB',
+            'price' => 20,
+            'stock' => 20,
+            'monthly_quota' => 20,
+            'duration' => '1234-10-10'
         ]);
 
         $all = Product::all();
@@ -115,28 +116,63 @@ class UpdateRoutesTest extends TestCase
         $lastProduct = Product::find($lastNumber);
 
         $this->put('/products'. '/' . $lastNumber, [
-            'name' => 'PRODUCTOYE',
-            'description' => 'PRODUCTOYE',
-            'price' => 20,
-            'stock' => 20,
-            'monthly_quota' => 20,
-            'duration' => '1004-10-10'
+            'name' => 'AAAA',
+            'description' => 'AAAA',
+            'price' => 10,
+            'stock' => 10,
+            'monthly_quota' => 10,
+            'duration' => '2000-01-01'
         ]);
 
         $newProduct = Product::find($lastNumber);
 
         $this->assertNotEquals($lastProduct->name, $newProduct->name);
-        $this->assertNotEquals($lastProduct->surname, $newProduct->surname);
-        $this->assertNotEquals($lastProduct->email, $newProduct->email);
-        $this->assertNotEquals($lastProduct->phone, $newProduct->phone);
-        $this->assertNotEquals($lastProduct->adress, $newProduct->adress);
-        $this->assertNotEquals($lastProduct->type, $newProduct->type);
+        $this->assertNotEquals($lastProduct->description, $newProduct->description);
+        $this->assertNotEquals($lastProduct->price, $newProduct->price);
+        $this->assertNotEquals($lastProduct->stock, $newProduct->stock);
+        $this->assertNotEquals($lastProduct->monthly_quota, $newProduct->monthly_quota);
+        $this->assertNotEquals($lastProduct->duration, $newProduct->duration);
 
-        $this->assertEquals($newProduct->name, 'PRODUCTOYE');
-        $this->assertEquals($newProduct->description, 'PRODUCTOYE');
-        $this->assertEquals($newProduct->price, 20);
-        $this->assertEquals($newProduct->stock, 20);
-        $this->assertEquals($newProduct->monthly_quota, 20);
-        $this->assertEquals($newProduct->duration, '1004-10-10');
+        $this->assertEquals($newProduct->name, 'AAAA');
+        $this->assertEquals($newProduct->description, 'AAAA');
+        $this->assertEquals($newProduct->price, 10);
+        $this->assertEquals($newProduct->stock, 10);
+        $this->assertEquals($newProduct->monthly_quota, 10);
+        $this->assertEquals($newProduct->duration, '2000-01-01');
+    }
+    
+    public function test_sale_proposals_update_route(): void
+    {
+        $user = User::find(1);
+
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+        
+        $this->post('/clients/2/saleProposals', [
+            'state' => 'to check',
+            'quantity_sold' => 9,
+            'total_price' => 9
+        ]);
+
+        $all = SaleProposal::all();
+        $lastProposalId = count($all);
+        $lastSaleProposal = SaleProposal::find($lastProposalId);
+
+        $this->put('/clients/2/saleProposals/' . $lastProposalId, [
+            'state' => 'accepted',
+            'quantity_sold' => 10,
+            'total_price' => 9
+        ]);
+
+        $newSaleProposal = SaleProposal::find($lastProposalId);
+
+        $this->assertNotEquals($lastSaleProposal->state, $newSaleProposal->state);
+        $this->assertNotEquals($lastSaleProposal->quantity_sold, $newSaleProposal->quantity_sold);
+
+        $this->assertEquals($newSaleProposal->state, 'accepted');
+        $this->assertEquals($newSaleProposal->quantity_sold, 10);
+        $this->assertEquals($newSaleProposal->total_price, 9);
     }
 }
