@@ -6,6 +6,7 @@ use App\Models\SaleProposal;
 use App\Models\Client;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SaleProposalController extends Controller
 {
@@ -20,6 +21,28 @@ class SaleProposalController extends Controller
         return view('proposals_module.index', [
             'saleProposals' => $sale_proposals,
             'clients' => $clients,
+        ]);
+    }
+
+    public function clientSaleProposals($client)
+    {
+        /* $sale_proposals = SaleProposal::all();
+        $specific_sales = []; */
+
+        $sale_proposals = DB::table('sale_proposals')
+            ->where([
+                ['client_id', '=', $client],
+            ])->get();
+
+        /* foreach ($sale_proposals as $sale) {
+            if ($sale->client_id == $client) {
+                $specific_sales[] = $sale;
+            }
+        } */
+
+        return view('proposals_module.index', [
+            'saleProposals' => $sale_proposals,
+            'client' => $client,
         ]);
     }
 
@@ -74,7 +97,7 @@ class SaleProposalController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request, Client $client)
-    {        
+    {
         SaleProposal::create($request->all());
         return redirect('/clients/' . $client->client_id);
 

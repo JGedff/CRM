@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     
     Route::resource('clients', ClientController::class);
     Route::resource('clients.saleProposals', SaleProposalController::class);
+    Route::get('clients/{client}/saleProposals', [SaleProposalController::class, 'clientSaleProposals']);
     Route::get('saleProposals/selection/{state}', [SaleProposalController::class, 'specificSalesListing']);
     Route::get('saleProposals/all', [SaleProposalController::class, 'allSaleProposals']);
     Route::resource('products', ProductController::class);

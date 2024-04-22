@@ -16,13 +16,13 @@
                     <li class="nav-item">
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/main">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="nb_clients_btn">
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/clients">Clients</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="nb_products_btn">
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/products">Products</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="nb_sales_btn">
                         <a type="button" class="nav-link px-4 fs-5 nbLink" href="/saleProposals/all">Sale proposals</a>
                     </li>
                 </ul>
@@ -63,6 +63,9 @@
                     <a type="button" class="btn btn-primary" href="/saleProposals/all">Show all</a>
                 </div>
                 <!-- <a class="btn btn-success btn-sm ms-4 me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a> -->
+            @endif
+            @if (request()->is('clients/*/saleProposals'))
+                <a class="btn btn-secondary btn-sm me-2 my-0" href="/clients/{{ $client }}" role="button">Back to client</a>
             @endif
             @if (request()->is('products'))
                 <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>

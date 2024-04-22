@@ -35,7 +35,7 @@
                                     <th>Price</th>
                                     <th>Stock</th>
                                     <th>Monthly quota</th>
-                                    <th>Until</th>
+                                    <th>Duration</th>
                                     <th></th>
                                 </thead>
 

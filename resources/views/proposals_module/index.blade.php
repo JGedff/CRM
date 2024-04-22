@@ -27,9 +27,8 @@
                                     <th>Sale ID</th>
                                     <th>Client (id)</th>
                                     <th>Creation date</th>
-                                    <th>State</th>
-                                    <th>Quantity sold</th>
-                                    <th>Total price</th>
+                                    <th>Sale state</th>
+                                    <th>Total revenue</th>
                                     <th></th>
                                 </thead>
 
@@ -42,10 +41,9 @@
                                                     <td>{{ $client->name }} ({{ $client->id }})</td>
                                                 @endif
                                             @endforeach
-                                            <td>{{ $sale->created_at }} €</td>
+                                            <td>{{ $sale->created_at }}</td>
                                             <td>{{ $sale->state }}</td>
-                                            <td>{{ $sale->quantity_sold }} €</td>
-                                            <td>{{ $sale->total_price }}</td>
+                                            <td>{{ $sale->total_price }} €</td>
                                             <td>
                                                 <div class="d-flex justify-content-end">
                                                     <!-- EDIT -->
