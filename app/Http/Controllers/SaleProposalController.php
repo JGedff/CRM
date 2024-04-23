@@ -24,47 +24,33 @@ class SaleProposalController extends Controller
         ]);
     }
 
-    public function clientSaleProposals($client)
+    /**
+     * Propuestas de cliente específico
+     */
+    public function clientSaleProposals($req_client)
     {
-        /* $sale_proposals = SaleProposal::all();
-        $specific_sales = []; */
+        $clients = Client::all();
+        foreach ($clients as $dbClient) {
+            if ($dbClient->id == $req_client) {
+                $client = $dbClient;
+            }
+        }
 
         $sale_proposals = DB::table('sale_proposals')
             ->where([
-                ['client_id', '=', $client],
+                ['client_id', '=', $req_client],
             ])->get();
 
-        /* foreach ($sale_proposals as $sale) {
-            if ($sale->client_id == $client) {
-                $specific_sales[] = $sale;
-            }
-        } */
-
-        return view('proposals_module.index', [
+        return view('proposals_module.index_client', [
             'saleProposals' => $sale_proposals,
             'client' => $client,
-        ]);
-    }
-
-    public function allSaleProposals()
-    {
-        // Añadir cosas para mostrar la lista de saleProposals completa.
-        $sales = SaleProposal::all();
-        $clients = Client::all();
-
-        /* foreach ($sales as $sale) {
-            if ($sale->client_id == )
-        } */
-
-        return view('proposals_module.index', [
-            //...
         ]);
     }
 
     public function specificSalesListing($state)
     {
         $sales = SaleProposal::all();
-        $clients = CLient::all();
+        $clients = Client::all();
 
         $sale_proposals = [];
 
@@ -98,24 +84,46 @@ class SaleProposalController extends Controller
      */
     public function store(Request $request, Client $client)
     {
+        $products = Product::all();
+        foreach ($products as $product) {
+            if ($product->id == $request->product) {
+                $product->stock = $product->stock - $request->quantity;
+                break;
+            }
+        }
+
         SaleProposal::create($request->all());
-        return redirect('/clients/' . $client->client_id);
-
-
-
-        $req = $request->all();
-        $req['client_id'] = $client->id;
-
-        $holiday = SaleProposal::create($req);
         return redirect('/clients/' . $client->client_id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client, SaleProposal $saleProposal)
+    public function show($req_sale)
     {
-        return view('proposals_module.show', ['saleProposal' => $saleProposal]);
+        $sales = SaleProposal::all();
+        $clients = Client::all();
+        $products = Product::all();
+        $saleProposal = '';
+        $client = '';
+
+        foreach ($sales as $dbSale) {
+            if ($dbSale->id == $req_sale) {
+                $saleProposal = $dbSale;
+                foreach ($clients as $dbClient) {
+                    if ($dbSale->client_id == $dbClient->id) {
+                        $client = $dbClient;
+                    }
+                }
+                break;
+            }
+        }
+
+        return view('proposals_module.show', [
+            'saleProposal' => $saleProposal,
+            'client' => $client,
+            'products' => $products,
+        ]);
     }
 
     /**

@@ -4,7 +4,7 @@
 
     <div class="row justify-content-center px-5">
 
-        @if (empty($saleProposals) || $saleProposals->isEmpty())
+        @if (empty($saleProposals) /* || $saleProposals->isEmpty() */)
             <div class="card border-warning bg-warning-subtle mx-5 mb-5">
                 <div class="card-body text-center justify-content-center align-items-center">
                     <h2 class="fw-semibold">No sale proposals found!</h2>
@@ -25,27 +25,42 @@
 
                                 <thead>
                                     <th>Sale ID</th>
-                                    <th>Client (id)</th>
+                                    <th>Client (ID)</th>
                                     <th>Creation date</th>
+                                    <th>Total products</th>
+                                    <th>Total price</th>
                                     <th>Sale state</th>
-                                    <th>Total revenue</th>
                                     <th></th>
                                 </thead>
 
                                 <tbody>
                                     @foreach ($saleProposals as $sale)
-                                        <tr class="table-row align-middle">
+                                        <tr class="table-row align-middle" data-href="/saleProposals/show/{{ $sale->id }}" style="cursor: pointer;">
                                             <td>{{ $sale->id }}</td>
                                             @foreach ($clients as $client)
                                                 @if ($client->id == $sale->client_id)
-                                                    <td>{{ $client->name }} ({{ $client->id }})</td>
+                                                    <td>{{ $client->name }} {{ $client->surname }} ({{ $client->id }})</td>
                                                 @endif
                                             @endforeach
                                             <td>{{ $sale->created_at }}</td>
-                                            <td>{{ $sale->state }}</td>
+                                            <td>{{ $sale->product_quantity }}</td>
                                             <td>{{ $sale->total_price }} €</td>
                                             <td>
-                                                <div class="d-flex justify-content-end">
+                                                @switch($sale->state)
+                                                    @case("completed")
+                                                        <button type="button" class="btn btn-success btn-sm">{{ $sale->state }}</button>
+                                                        @break
+                                                    @case("cancelled")
+                                                        <button type="button" class="btn btn-danger btn-sm">{{ $sale->state }}</button>
+                                                        @break
+                                                    @default
+                                                        <button type="button" class="btn btn-warning btn-sm">{{ $sale->state }}</button>
+                                                        @break
+                                                        
+                                                @endswitch
+                                            </td>
+                                            <td>
+                                                {{-- <div class="d-flex justify-content-end">
                                                     <!-- EDIT -->
                                                     <a class="btn btn-active btn-sm" href="/sales/{{ $sale->id }}/edit" role="button">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" fill="currentColor" class="bi bi-trash-fill">
@@ -64,7 +79,7 @@
                                                             </svg>
                                                         </button>
                                                     </form>
-                                                </div>
+                                                </div> --}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -77,4 +92,18 @@
             </div>
         @endif
 
+@endsection
+
+@section('js')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var tableRows = document.querySelectorAll(".table-row");
+    
+            tableRows.forEach(function(row) {
+                row.addEventListener("click", function() {
+                    window.location.href = row.getAttribute("data-href");
+                });
+            });
+        });
+    </script>
 @endsection

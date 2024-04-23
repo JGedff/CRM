@@ -57,15 +57,15 @@
         <div class="d-flex">
             @if (request()->is('saleProposals/all') || request()->is('saleProposals/selection/*'))
                 <div class="btn-group btn-group-sm my-0 me-4 border border-light" role="group">
-                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{cancelled}">Cancelled</a>
-                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{pending}">Pending</a>
-                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/{finished}">Finished</a>
+                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/cancelled">Cancelled</a>
+                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/pending">Pending</a>
+                    <a type="button" class="btn btn-secondary" href="/saleProposals/selection/completed">Completed</a>
                     <a type="button" class="btn btn-primary" href="/saleProposals/all">Show all</a>
                 </div>
                 <!-- <a class="btn btn-success btn-sm ms-4 me-2 my-0" href="/saleProposals/create" role="button">Start new sale</a> -->
             @endif
             @if (request()->is('clients/*/saleProposals'))
-                <a class="btn btn-secondary btn-sm me-2 my-0" href="/clients/{{ $client }}" role="button">Back to client</a>
+                <a class="btn btn-secondary btn-sm me-2 my-0" href="/clients/{{ $client->id }}" role="button">Back to client</a>
             @endif
             @if (request()->is('products'))
                 <a class="btn btn-success btn-sm me-2 my-0" href="/products/create" role="button">Add new product</a>

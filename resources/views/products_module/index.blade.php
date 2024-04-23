@@ -32,6 +32,7 @@
                                 <thead>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>Creation date</th>
                                     <th>Price</th>
                                     <th>Stock</th>
                                     <th>Monthly quota</th>
@@ -44,6 +45,7 @@
                                         <tr class="table-row align-middle">
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->description }}</td>
+                                            <td>{{ $product->created_at }}</td>
                                             <td>{{ $product->price }} €</td>
                                             <td>{{ $product->stock }}</td>
                                             <td>{{ $product->monthly_quota }} €</td>
